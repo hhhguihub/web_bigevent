@@ -50,15 +50,16 @@ $('#login_form').submit(function(e){
         method:'POST',
         data:$(this).serialize(),
         success:function(res){
-            console.log(res);
+            // console.log(res);
             if(res.status!==0){
                 return layer.msg(res.message)
             }
             layer.msg('登录成功！')
             // 将登录成功得到的token保存到localstorage中
-            localStorage.getItem('token',res.token);
+            localStorage.setItem('token',res.token);
             // 跳转到index.html页面
-            location.href = 'http://127.0.0.1:5500/%E5%90%8E%E5%8F%B0%E5%A4%A7%E4%BA%8B%E4%BB%B6/index.html'
+            location.href = 'index.html';
         }
+        
     })
 })
